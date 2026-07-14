@@ -1,0 +1,23 @@
+[
+  {
+    "id": "CLIENT-001",
+    "project": "Imported Integration Programme",
+    "sector": "Rail",
+    "phase": "Integration",
+    "type": "Scope change",
+    "year": 2026,
+    "title": "Imported interface precedent",
+    "problem": "A late signalling interface change required approval during integration.",
+    "context": "Imported test evidence with a protected access window.",
+    "risks": ["interface", "testing", "access window"],
+    "decision": "Approve after interface freeze and independent regression test review.",
+    "intervention": "Interface freeze and protected test",
+    "scheduleOutcome": 4,
+    "costOutcome": 0.8,
+    "baselineExposure": 20,
+    "outcome": "Four days of delay and no repeated assurance submission.",
+    "confidence": 0.9,
+    "evidence": ["Imported change log", "Imported close-out report"],
+    "owner": "Imported systems lead"
+  }
+]

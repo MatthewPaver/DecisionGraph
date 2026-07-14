@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#12100e">
+  <meta name="description" content="DecisionGraph retrieves comparable project decisions, explains why they matter and shows what happened next.">
+  <title>DecisionGraph | What happened last time?</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Skip to decision workspace</a>
+  <div class="grain" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="#" aria-label="DecisionGraph home"><span class="brand-node"><i></i><i></i><i></i></span><strong>DecisionGraph</strong><em>Organisational memory</em></a>
+    <div class="source-status"><i></i><span id="caseCount">16 verified cases</span><b>Synthetic demo evidence</b></div>
+    <nav aria-label="Primary navigation">
+      <button class="nav-button active" data-view="workspace" type="button">Decision desk</button>
+      <button class="nav-button" data-view="vault" type="button">Case vault</button>
+      <button class="nav-button" data-view="memory" type="button">Memory log</button>
+    </nav>
+    <button class="import-button" id="openImport" type="button">Import history <span>+</span></button>
+    <a class="credit" href="https://matthewpaver.github.io/MatthewPaver/store/" target="_blank" rel="noreferrer">Matthew Paver ↗</a>
+  </header>
+
+  <main id="workspace">
+    <section class="view active" data-view-panel="workspace">
+      <div class="hero">
+        <div class="hero-index"><span>Decision intelligence</span><b>01 / 03</b></div>
+        <div class="hero-copy">
+          <p class="eyebrow">Before we approve this change</p>
+          <h1>What happened<br><em>last time?</em></h1>
+          <p class="hero-lede">Retrieve comparable project decisions. Inspect why they match. See the intervention and the measured outcome before committing again.</p>
+        </div>
+        <aside class="memory-stat"><span>Memory health</span><strong>83<small>%</small></strong><p>13 cases include a measured outcome and source trail.</p><button id="methodButton" type="button">How retrieval works →</button></aside>
+      </div>
+
+      <section class="question-shell" aria-labelledby="questionTitle">
+        <div class="question-number">01</div>
+        <form id="decisionForm">
+          <div class="question-head"><div><span>New decision</span><h2 id="questionTitle">Describe the change or delivery problem</h2></div><button id="loadExample" type="button">Load another example ↻</button></div>
+          <label class="problem-field"><span>Decision question</span><textarea id="problemInput" rows="3">Approve a late signalling interface change before system integration after a standards clarification.</textarea></label>
+          <div class="context-grid">
+            <label><span>Sector</span><select id="sectorInput"><option>Rail</option><option>Energy</option><option>Buildings</option><option>Water</option><option>Digital</option><option>Aviation</option><option>Infrastructure</option></select></label>
+            <label><span>Project phase</span><select id="phaseInput"><option>Integration</option><option>Design</option><option>Procurement</option><option>Construction</option><option>Testing</option><option>Delivery</option></select></label>
+            <label><span>Change type</span><select id="typeInput"><option>Scope change</option><option>Design change</option><option>Technical change</option><option>Acceleration</option><option>Supplier change</option><option>Material change</option><option>Standard change</option></select></label>
+            <label><span>Schedule exposure</span><select id="pressureInput"><option value="high">High · critical path</option><option value="medium">Medium · float available</option><option value="low">Low · outside critical path</option></select></label>
+          </div>
+          <div class="form-foot"><p><i></i> Retrieval is deterministic. Recommendation language is constrained to the evidence shown.</p><button class="search-button" type="submit"><span>Search organisational memory</span><b>⌘ ↵</b></button></div>
+        </form>
+      </section>
+
+      <section class="results-section" id="resultsSection" aria-labelledby="resultsTitle">
+        <div class="section-marker"><span>02</span><i></i><b>Comparable history</b></div>
+        <div class="results-heading"><div><p class="eyebrow">Retrieved precedents</p><h2 id="resultsTitle">The closest decisions we have seen</h2></div><div class="retrieval-summary"><span>Evidence set</span><b id="retrievalSummary">3 of 16 cases · 91% top match</b></div></div>
+        <div class="graph-layout">
+          <article class="graph-panel">
+            <div class="panel-head"><div><span>Relationship map</span><h3>Project knowledge graph</h3></div><div class="graph-legend"><i class="query"></i>New change<i class="case"></i>Case<i class="decision"></i>Decision<i class="outcome"></i>Outcome</div></div>
+            <div class="graph-canvas" id="graphCanvas" aria-label="Knowledge graph connecting the current change to historical cases, decisions and outcomes"></div>
+            <div class="graph-foot"><span id="graphMeta">10 nodes · 9 evidence links</span><button id="replayGraph" type="button">Replay graph ↻</button></div>
+          </article>
+          <aside class="insight-panel" id="insightPanel"></aside>
+        </div>
+        <div class="case-results" id="caseResults"></div>
+      </section>
+
+      <section class="recommendation-section" aria-labelledby="recommendationTitle">
+        <div class="section-marker"><span>03</span><i></i><b>Human decision</b></div>
+        <article class="recommendation-card">
+          <div class="recommendation-label"><span>Evidence-linked recommendation</span><b id="evidenceStrength">STRONG EVIDENCE</b></div>
+          <div class="recommendation-main">
+            <div><p class="eyebrow">Conditional recommendation</p><h2 id="recommendationTitle">Approve with an interface freeze and protected regression test.</h2></div>
+            <div class="outcome-range"><span>Historical outcome range</span><strong id="outcomeRange">3–8<small> DAYS</small></strong><p id="outcomeRangeCopy">versus 18–24 days of untreated exposure</p></div>
+          </div>
+          <div class="recommendation-grid">
+            <div><span>Why this action</span><p id="whyAction">The strongest two precedents controlled the interface boundary and protected testing. The closest failure compressed testing and moved cutover by 17 days.</p></div>
+            <div><span>Approval conditions</span><ul id="conditionsList"><li>Name one interface owner</li><li>Freeze the affected design for 10 days</li><li>Protect the full regression-test window</li></ul></div>
+            <div><span>Evidence boundary</span><p id="evidenceBoundary">This is a proposal from 3 synthetic precedents, not an autonomous approval. Confirm local safety, commercial and access constraints.</p></div>
+          </div>
+          <div class="approval-bar"><button class="reject-button" id="rejectRecommendation" type="button">Needs more evidence</button><button class="approve-button" id="approveRecommendation" type="button"><span>Approve for human review</span><b>Record decision →</b></button></div>
+        </article>
+      </section>
+    </section>
+
+    <section class="view vault-view" data-view-panel="vault" hidden>
+      <div class="view-heading"><p class="eyebrow">Organisational evidence</p><h1>Case <em>vault.</em></h1><p>Search every project decision, intervention and observed outcome. Select a case to inspect its full evidence chain.</p></div>
+      <div class="vault-toolbar"><label>Search<input id="vaultSearch" type="search" placeholder="Search problem, risk or intervention"></label><label>Sector<select id="vaultSector"><option value="all">All sectors</option></select></label><label>Outcome<select id="vaultOutcome"><option value="all">All outcomes</option><option value="positive">Recovered or contained</option><option value="negative">Worse than exposure</option></select></label><span id="vaultCount">16 cases</span></div>
+      <div class="vault-layout"><div class="vault-list" id="vaultList"></div><aside class="case-dossier" id="caseDossier"></aside></div>
+    </section>
+
+    <section class="view memory-view" data-view-panel="memory" hidden>
+      <div class="view-heading"><p class="eyebrow">Close the loop</p><h1>Make the outcome<br><em>retrievable.</em></h1><p>A decision is not a lesson until the actual outcome is recorded and can influence the next similar decision.</p></div>
+      <div class="memory-layout">
+        <article class="memory-timeline"><div class="panel-head"><div><span>Decision lifecycle</span><h3>Human review queue</h3></div><b id="memoryCount">2 open</b></div><div id="memoryTimeline"></div></article>
+        <aside class="memory-form"><span>Add an outcome</span><h2>Complete the evidence loop</h2><label>Decision reference<select id="memoryDecision"><option>DG-NEW-001 · Signalling interface change</option><option>DG-NEW-002 · Supplier recovery action</option></select></label><label>Observed schedule movement<input id="memorySchedule" type="number" value="6"><small>Days against committed plan</small></label><label>Observed cost movement<input id="memoryCost" type="number" value="1.4" step="0.1"><small>Percentage against approved budget</small></label><label>Outcome evidence<textarea id="memoryEvidence" rows="3" placeholder="Close-out report, updated programme, cost record…"></textarea></label><button id="saveOutcome" type="button">Validate and add to memory →</button><p>Demo entries remain in this browser session only.</p></aside>
+      </div>
+    </section>
+  </main>
+
+  <dialog id="importDialog" class="modal">
+    <form method="dialog">
+      <button class="close-button" value="cancel" aria-label="Close import">×</button><span>Local data import</span><h2>Bring your decision history</h2>
+      <p>Import JSON or CSV containing previous changes, decisions, risks and outcomes. Files are parsed in your browser and never uploaded.</p>
+      <label class="drop-zone" for="historyFiles"><strong>Select case files</strong><span>JSON or CSV · multiple files accepted</span><input id="historyFiles" type="file" accept=".json,.csv,application/json,text/csv" multiple></label>
+      <div class="import-schema"><span>Required</span><b>project · problem · decision · outcome</b><span>Recommended</span><b>sector · phase · risks · scheduleOutcome · costOutcome · evidence</b></div>
+      <button class="template-button" id="downloadTemplate" type="button">Download import template ↓</button>
+    </form>
+  </dialog>
+
+  <dialog id="methodDialog" class="modal method-modal">
+    <form method="dialog"><button class="close-button" value="cancel" aria-label="Close methodology">×</button><span>Transparent retrieval</span><h2>How DecisionGraph works</h2>
+      <ol><li><b>Normalise the question.</b> Sector, phase, change type and problem text become an inspectable query.</li><li><b>Retrieve comparable cases.</b> Token overlap and exact context matches produce a deterministic similarity score.</li><li><b>Traverse the evidence graph.</b> Each case connects the original problem, decision, intervention, outcome and source references.</li><li><b>Synthesise within evidence.</b> Recommendation language uses only the retrieved cases and highlights conflicting outcomes.</li><li><b>Require human approval.</b> A proposal does not enter memory until a reviewer records a decision and later adds the observed result.</li></ol>
+      <p>Production RAG could add semantic embeddings and an LLM synthesis stage. This public demonstrator intentionally keeps retrieval local, deterministic and testable.</p>
+    </form>
+  </dialog>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="cases.js"></script><script src="app.js"></script>
+</body>
+</html>
