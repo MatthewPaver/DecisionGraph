@@ -4,6 +4,8 @@
 
 DecisionGraph is an interactive decision-support demonstrator for retrieving comparable project changes, explaining why they are relevant and connecting the intervention chosen to the schedule or cost outcome that followed.
 
+It now acts as optional precedent evidence inside [ProjectLens Project Change Assurance](https://matthewpaver.github.io/ProjectLens/change-assurance.html). The primary workflow keeps comparable cases collapsed until a reviewer asks for supporting evidence.
+
 ![DecisionGraph knowledge graph and comparable project cases](docs/assets/decisiongraph-preview.png)
 
 ## Live workflow
