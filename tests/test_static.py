@@ -21,7 +21,7 @@ class DecisionGraphStaticTests(unittest.TestCase):
     def test_human_boundary_is_visible(self):
         html = (ROOT / "docs" / "index.html").read_text()
         app = (ROOT / "docs" / "app.js").read_text()
-        self.assertIn("Approve for human review", html)
+        self.assertIn("Save proposal to review queue", html)
         self.assertIn("not an autonomous approval", app)
         self.assertIn("Files are parsed in your browser", html)
 

@@ -13,9 +13,8 @@
 </head>
 <body>
   <a class="skip-link" href="#workspace">Skip to decision workspace</a>
-  <div class="grain" aria-hidden="true"></div>
   <header class="topbar">
-    <a class="brand" href="#" aria-label="DecisionGraph home"><span class="brand-node"><i></i><i></i><i></i></span><strong>DecisionGraph</strong><em>Organisational memory</em></a>
+    <a class="brand" href="#" aria-label="DecisionGraph home"><span class="brand-node"><i></i><i></i><i></i></span><strong>DecisionGraph</strong><em>Project Evidence Desk · decision memory</em></a>
     <div class="source-status"><i></i><span id="caseCount">16 verified cases</span><b>Synthetic demo evidence</b></div>
     <nav aria-label="Primary navigation">
       <button class="nav-button active" data-view="workspace" type="button">Decision desk</button>
@@ -23,19 +22,19 @@
       <button class="nav-button" data-view="memory" type="button">Memory log</button>
     </nav>
     <button class="import-button" id="openImport" type="button">Import history <span>+</span></button>
-    <a class="credit" href="https://matthewpaver.github.io/ProjectLens/change-assurance.html">Review a change ↗</a>
+    <a class="credit" href="https://matthewpaver.github.io/ProjectLens/board-readiness.html">Board readiness ↗</a>
   </header>
 
   <main id="workspace">
     <section class="view active" data-view-panel="workspace">
       <div class="hero">
-        <div class="hero-index"><span>Decision intelligence</span><b>01 / 03</b></div>
+        <div class="hero-index"><span>Comparable outcomes</span><b>01 / 03</b></div>
         <div class="hero-copy">
           <p class="eyebrow">Before we approve this change</p>
           <h1>What happened<br><em>last time?</em></h1>
           <p class="hero-lede">Retrieve comparable project decisions. Inspect why they match. See the intervention and the measured outcome before committing again.</p>
         </div>
-        <aside class="memory-stat"><span>Memory health</span><strong>83<small>%</small></strong><p>13 cases include a measured outcome and source trail.</p><button id="methodButton" type="button">How retrieval works →</button></aside>
+        <aside class="memory-stat"><span>Evidence available</span><strong>13</strong><p>cases include a measured outcome and source trail.</p><button id="methodButton" type="button">How retrieval works →</button></aside>
       </div>
 
       <section class="question-shell" aria-labelledby="questionTitle">
@@ -70,7 +69,7 @@
       <section class="recommendation-section" aria-labelledby="recommendationTitle">
         <div class="section-marker"><span>03</span><i></i><b>Human decision</b></div>
         <article class="recommendation-card">
-          <div class="recommendation-label"><span>Evidence-linked recommendation</span><b id="evidenceStrength">STRONG EVIDENCE</b></div>
+          <div class="recommendation-label"><span>Evidence-linked proposal</span><b id="evidenceStrength">3 COMPARABLE CASES</b></div>
           <div class="recommendation-main">
             <div><p class="eyebrow">Conditional recommendation</p><h2 id="recommendationTitle">Approve with an interface freeze and protected regression test.</h2></div>
             <div class="outcome-range"><span>Historical outcome range</span><strong id="outcomeRange">3–8<small> DAYS</small></strong><p id="outcomeRangeCopy">versus 18–24 days of untreated exposure</p></div>
@@ -80,7 +79,7 @@
             <div><span>Approval conditions</span><ul id="conditionsList"><li>Name one interface owner</li><li>Freeze the affected design for 10 days</li><li>Protect the full regression-test window</li></ul></div>
             <div><span>Evidence boundary</span><p id="evidenceBoundary">This is a proposal from 3 synthetic precedents, not an autonomous approval. Confirm local safety, commercial and access constraints.</p></div>
           </div>
-          <div class="approval-bar"><button class="reject-button" id="rejectRecommendation" type="button">Needs more evidence</button><button class="approve-button" id="approveRecommendation" type="button"><span>Approve for human review</span><b>Record decision →</b></button></div>
+          <div class="approval-bar"><button class="reject-button" id="rejectRecommendation" type="button">Needs more evidence</button><button class="approve-button" id="approveRecommendation" type="button"><span>Save proposal to review queue</span><b>Record decision →</b></button></div>
         </article>
       </section>
     </section>
