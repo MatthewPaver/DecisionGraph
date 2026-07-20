@@ -112,7 +112,7 @@ function renderRecommendation() {
     ? "Approve with an interface freeze and protected regression test."
     : best.decision.replace(/^Approve /i, "Approve ").replace(/\.$/, ".");
   document.getElementById("recommendationTitle").textContent = action;
-  document.getElementById("evidenceStrength").textContent = best.score >= 80 ? "STRONG EVIDENCE" : best.score >= 65 ? "MODERATE EVIDENCE" : "LIMITED EVIDENCE";
+  document.getElementById("evidenceStrength").textContent = `${state.matches.length} COMPARABLE CASES`;
   document.getElementById("outcomeRange").innerHTML = `${lower}–${upper}<small> DAYS</small>`;
   document.getElementById("outcomeRangeCopy").textContent = `versus ${Math.min(...state.matches.map(item => item.baselineExposure))}–${Math.max(...state.matches.map(item => item.baselineExposure))} days of untreated exposure`;
   document.getElementById("whyAction").textContent = `${best.id} is the closest precedent and contained the outcome to ${best.scheduleOutcome} days. ${worst.id} is the caution case: ${worst.intervention.toLowerCase()} produced ${worst.scheduleOutcome} days and ${worst.costOutcome}% cost movement.`;
