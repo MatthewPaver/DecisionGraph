@@ -1,10 +1,10 @@
 # DecisionGraph
 
+[![Validate and deploy DecisionGraph](https://github.com/MatthewPaver/DecisionGraph/actions/workflows/deploy-pages.yml/badge.svg)](https://github.com/MatthewPaver/DecisionGraph/actions/workflows/deploy-pages.yml)
+
 **What happened last time?**
 
-DecisionGraph is an interactive decision-support demonstrator for retrieving comparable project changes, explaining why they are relevant and connecting the intervention chosen to the schedule or cost outcome that followed.
-
-It now acts as optional precedent evidence inside [ProjectLens Project Change Assurance](https://matthewpaver.github.io/ProjectLens/change-assurance.html). The primary workflow keeps comparable cases collapsed until a reviewer asks for supporting evidence.
+DecisionGraph is a precedent-retrieval demonstrator that lives inside [ProjectLens Project Change Assurance](https://matthewpaver.github.io/ProjectLens/change-assurance.html): when a reviewer asks for supporting evidence, it retrieves comparable project changes, explains why they are relevant and connects the intervention chosen to the schedule or cost outcome that followed. The change-assurance workflow keeps comparable cases collapsed until a reviewer asks for them.
 
 ![DecisionGraph knowledge graph and comparable project cases](docs/assets/decisiongraph-preview.png)
 
@@ -30,6 +30,8 @@ This version deliberately separates deterministic retrieval from generative synt
 - explicit graph edges from problem to decision to outcome
 - recommendation language constrained to retrieved evidence
 - mandatory human review before a proposal enters the memory log
+
+Ranking behaviour is verified in CI ([`tests/retrieval.test.cjs`](tests/retrieval.test.cjs)): Node tests assert that a case matching sector, phase and change type outranks a text-only match, that ranking is deterministic and respects the result limit, and that generic change words are excluded from tokens. A separate static suite checks that all 16 demo cases carry schedule, cost and evidence outcomes.
 
 A production implementation could replace token overlap with evaluated semantic embeddings and add a model-backed synthesis stage. It would also need access control, document-level permissions, source-quality checks, evaluation datasets and durable storage.
 

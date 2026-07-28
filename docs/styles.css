@@ -30,3 +30,4 @@ dialog::backdrop { backdrop-filter: none; }
 .recommendation-grid span,
 .timeline-item span,
 .timeline-item small { font-size: .6rem; }
+.site-footer{padding:1.1rem clamp(1rem,4.7vw,5.8rem);border-top:1px solid var(--line);color:var(--muted);font:500 .52rem/1.5 "DM Mono",monospace;text-transform:uppercase;letter-spacing:.04em}.site-footer a{color:inherit;text-underline-offset:.25em}@media(max-width:720px){.site-footer{padding-bottom:calc(1.1rem + 58px)}}
