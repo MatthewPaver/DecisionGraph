@@ -8,7 +8,7 @@ ROOT = Path(__file__).parents[1]
 
 class DecisionGraphStaticTests(unittest.TestCase):
     def test_required_assets_exist(self):
-        for name in ("index.html", "styles.css", "app.js", "cases.js"):
+        for name in ("index.html", "styles.css", "app.js", "cases.js", "retrieval.js"):
             self.assertTrue((ROOT / "docs" / name).is_file(), name)
 
     def test_demo_has_comparable_outcomes(self):
