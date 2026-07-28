@@ -20,10 +20,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  test-and-deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -39,15 +36,22 @@ jobs:
         run: node --test tests/*.test.cjs
       - name: Run static contract tests
         run: python -m unittest discover tests
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: test
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
       - uses: actions/configure-pages@v6
-        if: github.event_name != 'pull_request'
         with:
           enablement: true
       - uses: actions/upload-pages-artifact@v5
-        if: github.event_name != 'pull_request'
         with:
           path: docs
       - name: Deploy
-        if: github.event_name != 'pull_request'
         id: deployment
         uses: actions/deploy-pages@v5
